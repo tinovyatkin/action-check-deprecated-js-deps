@@ -4,8 +4,8 @@ import getAllDeps from "./get-all-deps";
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput("milliseconds");
-    console.log(`Waiting ${ms} milliseconds ...`);
+    const ignore = core.getInput("ignore");
+    console.log(`ignoring`, ignore);
 
     core.debug(new Date().toTimeString());
     const res = getAllDeps();
