@@ -1,13 +1,17 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: "Check Deprecated Dependencies"
+description: "Checking for deprecated JavaScript dependencies"
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
+  ignore: # packages to ignore
+    description: "packages names to ignore"
+    required: false
+    default: "[]"
+  package-json:
+    description: "paths to package.json files to check"
+    required: false
+    default: "**/package.json"
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  deprecated: # output will be available to future steps
+    description: "names of deprecated packages"
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
