@@ -5,7 +5,7 @@ branding:
   color: "orange"
 inputs:
   ignore: # packages to ignore
-    description: "packages names to ignore"
+    description: "comma-separated list of packages names to ignore"
     required: false
     default: ""
   root:
