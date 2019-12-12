@@ -1,0 +1,6 @@
+{
+  "name": "monorepo-2",
+  "devDependencies": {
+    "test-dev-dep": "3.4.5"
+  }
+}

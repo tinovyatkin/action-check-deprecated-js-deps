@@ -1,0 +1,12 @@
+{
+  "name": "monorepo-3",
+  "devDependencies": {
+    "test-dev-dep": "3.4.5"
+  },
+  "dependencies": {
+    "test-dep": "latest"
+  },
+  "resolutions": {
+    "test-resolution": "1.1.1"
+  }
+}

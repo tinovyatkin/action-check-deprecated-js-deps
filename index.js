@@ -1,4 +1,5 @@
-const core = require("@actions/core");
+import core from "@actions/core";
+import getAllDeps from "./get-all-deps";
 
 // most @actions toolkit packages have async methods
 async function run() {
@@ -7,7 +8,8 @@ async function run() {
     console.log(`Waiting ${ms} milliseconds ...`);
 
     core.debug(new Date().toTimeString());
-    wait(parseInt(ms));
+    const res = getAllDeps();
+    console.log(res);
     core.debug(new Date().toTimeString());
 
     core.setOutput("time", new Date().toTimeString());
