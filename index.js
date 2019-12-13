@@ -7,9 +7,9 @@ async function run() {
     const allDeps = getAllDeps();
     core.debug(JSON.stringify(allDeps.entries));
     const deprecations = await checkForDeprecations(allDeps);
-    core.setOutput("deprecated", [...deprecations.entries()].join(","));
+    core.setOutput("deprecated", [...deprecations].join(","));
     if (deprecations.size)
-      core.setFailed(`Deprecated: ${[...deprecations.entries()].join(",")}`);
+      core.setFailed(`Deprecated: ${[...deprecations].join(", ")}`);
     else
       console.info(
         "✅ Checked %d dependencies and no deprecated dependencies found",
