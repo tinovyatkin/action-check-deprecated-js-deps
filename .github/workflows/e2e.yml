@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  # testing on whole Babel monorepo
+  # testing on whole Jest yarn workspaces monorepo
   test:
     runs-on: ubuntu-latest
     steps:
@@ -14,9 +14,9 @@ jobs:
 
       - uses: actions/checkout@v2-beta
         with:
-          repository: babel/babel
-          path: babel
+          repository: facebook/jest
+          path: jest
 
       - uses: ./
         with:
-          root: babel
+          root: jest
