@@ -4,7 +4,7 @@ describe("getAllDeps", () => {
   it("returns map of all deps", () => {
     const res = getAllDeps();
     expect(res).toBeInstanceOf(Map);
-    expect(res.size).toBe(14);
+    expect(res.size).toBe(15);
   });
 
   it("works with monorepo", () => {

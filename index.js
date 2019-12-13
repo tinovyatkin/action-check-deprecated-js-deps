@@ -10,6 +10,11 @@ async function run() {
     core.setOutput("deprecated", [...deprecations.entries()].join(","));
     if (deprecations.size)
       core.setFailed(`Deprecated: ${[...deprecations.entries()].join(",")}`);
+    else
+      console.info(
+        "✅ Checked %d dependencies and no deprecated dependencies found",
+        allDeps.size
+      );
   } catch (error) {
     core.setFailed(error.message);
   }
