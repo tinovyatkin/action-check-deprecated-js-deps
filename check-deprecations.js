@@ -1,4 +1,4 @@
-import npmQuery from "package-json";
+import npmQuery, { VersionNotFoundError } from "package-json";
 import * as semver from "semver";
 import * as core from "@actions/core";
 
@@ -23,20 +23,27 @@ export default async function checkDeprecations(allDeps) {
       : pkgs.sort((p1, p2) => (semver.gte(p1.version, p2.version) ? -1 : 1))[0]
           .version;
 
+    /** @type {npmQuery.AbbreviatedMetadata} */
+    let pi;
     try {
-      const pi = await npmQuery(name, {
+      pi = await npmQuery(name, {
         version: latestUsedVersion
       });
-      if (pi.deprecated) {
-        core.warning(`📦  \x1b[1m\x1b[31m${name}\x1b[0m: ${pi.deprecated}`);
-        for (const pk of pkgs) {
-          core.info(`\t ${pk.file} [${pk.type}]: ${pk.version}`);
-        }
-        if (modulesToIgnore.has(name)) core.warning("Ignoring...");
-        else deprecated.add(name);
-      }
     } catch (err) {
       core.debug(err.message);
+      if (err instanceof VersionNotFoundError)
+        pi = await npmQuery(name, {
+          version: "latest"
+        });
+    }
+    if (pi && pi.deprecated) {
+      core.warning(`📦  \x1b[1m\x1b[31m${name}\x1b[0m: ${pi.deprecated}`);
+      for (const pk of pkgs) {
+        core.info(`\t ${pk.file} [${pk.type}]: ${pk.version}`);
+      }
+      if (modulesToIgnore.has(name))
+        core.warning(`Ignoring deprecation of ${name}...`);
+      else deprecated.add(name);
     }
   }
   return deprecated;

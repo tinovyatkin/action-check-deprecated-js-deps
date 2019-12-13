@@ -2,7 +2,7 @@
   "./*.js": [
     "eslint --fix --quiet -f visualstudio",
     "prettier --write",
-    "rollup -c rollup.config.js --",
+    "npm run package --",
     "git add dist/index.js",
     "jest --maxWorkers=2 --silent --forceExit --errorOnDeprecated --ci --bail --findRelatedTests"
   ],

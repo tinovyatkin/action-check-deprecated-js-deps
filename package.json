@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint index.js",
-    "package": "rollup -c",
+    "package": "rollup -c #",
     "test": "eslint index.js && jest"
   },
   "repository": {
