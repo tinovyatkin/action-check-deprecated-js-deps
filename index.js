@@ -5,11 +5,11 @@ import checkForDeprecations from "./check-deprecations";
 async function run() {
   try {
     const allDeps = getAllDeps();
-    core.debug(JSON.stringify(allDeps.entries));
+    core.debug(JSON.stringify([...allDeps]));
     const deprecations = await checkForDeprecations(allDeps);
-    core.setOutput("deprecated", [...deprecations.entries()].join(","));
+    core.setOutput("deprecated", [...deprecations].join(","));
     if (deprecations.size)
-      core.setFailed(`Deprecated: ${[...deprecations.entries()].join(",")}`);
+      core.setFailed(`Deprecated: ${[...deprecations].join(", ")}`);
     else
       console.info(
         "✅ Checked %d dependencies and no deprecated dependencies found",
