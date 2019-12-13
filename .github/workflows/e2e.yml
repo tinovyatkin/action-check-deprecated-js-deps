@@ -35,3 +35,4 @@ jobs:
       - uses: ./
         with:
           root: babel
+          ignore: rollup-plugin-replace
