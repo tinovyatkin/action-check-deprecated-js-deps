@@ -1,0 +1,37 @@
+name: "monorepo test"
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  # testing on whole Jest yarn workspaces monorepo
+  yarn-workspace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2-beta
+
+      - uses: actions/checkout@v2-beta
+        with:
+          repository: facebook/jest
+          path: jest
+
+      - uses: ./
+        with:
+          root: jest
+
+  # testing on babel lerna monorepo
+  lerna:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2-beta
+
+      - uses: actions/checkout@v2-beta
+        with:
+          repository: babel/babel
+          path: babel
+
+      - uses: ./
+        with:
+          root: babel

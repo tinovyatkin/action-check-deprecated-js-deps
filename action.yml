@@ -1,14 +1,17 @@
 name: "Check Deprecated Dependencies"
 description: "Checking for deprecated JavaScript dependencies"
+branding:
+  icon: "package"
+  color: "orange"
 inputs:
   ignore: # packages to ignore
-    description: "packages names to ignore"
+    description: "comma-separated list of packages names to ignore"
     required: false
-    default: "[]"
-  package-json:
-    description: "paths to package.json files to check"
+    default: ""
+  root:
+    description: "rootDir to search package.json files"
     required: false
-    default: "**/package.json"
+    default: "."
 outputs:
   deprecated: # output will be available to future steps
     description: "names of deprecated packages"

@@ -1,16 +1,20 @@
-const core = require("@actions/core");
+import core from "@actions/core";
+import getAllDeps from "./get-all-deps";
+import checkForDeprecations from "./check-deprecations";
 
-// most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput("milliseconds");
-    console.log(`Waiting ${ms} milliseconds ...`);
-
-    core.debug(new Date().toTimeString());
-    wait(parseInt(ms));
-    core.debug(new Date().toTimeString());
-
-    core.setOutput("time", new Date().toTimeString());
+    const allDeps = getAllDeps();
+    core.debug(JSON.stringify(allDeps.entries));
+    const deprecations = await checkForDeprecations(allDeps);
+    core.setOutput("deprecated", [...deprecations.entries()].join(","));
+    if (deprecations.size)
+      core.setFailed(`Deprecated: ${[...deprecations.entries()].join(",")}`);
+    else
+      console.info(
+        "✅ Checked %d dependencies and no deprecated dependencies found",
+        allDeps.size
+      );
   } catch (error) {
     core.setFailed(error.message);
   }

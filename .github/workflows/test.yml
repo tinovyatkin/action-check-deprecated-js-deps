@@ -4,22 +4,26 @@ on:
   push:
     branches:
       - master
-      - 'releases/*'
+      - "releases/*"
 
 jobs:
   # unit tests
   units:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - run: npm ci
-    - run: npm test
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "13.x"
 
-  # test action works running from the graph  
+      - uses: actions/checkout@v2-beta
+      - run: npm ci
+      - run: npm test
+
+  # test action works running from the graph
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./
-      with:
-        milliseconds: 1000
+      - uses: actions/checkout@v2-beta
+      - uses: ./
+        with:
+          ignore: babel, eslint

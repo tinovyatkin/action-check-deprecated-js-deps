@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "monorepo-root1",
+  "dependencies": {
+    "test-dep": "1.2.3"
+  },
+  "workspaces": [
+    "packages/a/",
+    "packages/b/"
+  ]
+}
