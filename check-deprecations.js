@@ -28,15 +28,15 @@ export default async function checkDeprecations(allDeps) {
         version: latestUsedVersion
       });
       if (pi.deprecated) {
-        console.warn("📦  \x1b[1m\x1b[31m%s\x1b[0m: %s", name, pi.deprecated);
+        core.warning(`📦  \x1b[1m\x1b[31m${name}\x1b[0m: ${pi.deprecated}`);
         for (const pk of pkgs) {
-          console.log("\t %s [%s]: %s", pk.file, pk.type, pk.version);
+          core.info(`\t ${pk.file} [${pk.type}]: ${pk.version}`);
         }
-        if (modulesToIgnore.has(name)) console.warn("Ignoring...");
+        if (modulesToIgnore.has(name)) core.warning("Ignoring...");
         else deprecated.add(name);
       }
     } catch (err) {
-      console.error(err);
+      core.debug(err.message);
     }
   }
   return deprecated;
