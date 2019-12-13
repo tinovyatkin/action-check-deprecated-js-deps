@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "13.x"
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2-beta
       - run: npm ci
       - run: npm test
 
@@ -23,7 +23,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2-beta
       - uses: ./
         with:
           ignore: babel, eslint
