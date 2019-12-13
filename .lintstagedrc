@@ -1,10 +1,10 @@
 {
-  "*.js": [
+  "./*.js": [
     "eslint --fix --quiet -f visualstudio",
     "prettier --write",
-    "rollup -c",
+    "rollup -c rollup.config.js --",
     "git add",
-    "node node_modules/jest-cli/bin/jest --maxWorkers=2 --silent --forceExit --errorOnDeprecated --ci --bail --findRelatedTests"
+    "jest --maxWorkers=2 --silent --forceExit --errorOnDeprecated --ci --bail --findRelatedTests"
   ],
   "*.{md,html,json,yaml,yml}": [
     "prettier --write",

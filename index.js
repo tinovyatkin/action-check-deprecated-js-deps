@@ -5,7 +5,7 @@ import checkForDeprecations from "./check-deprecations";
 async function run() {
   try {
     const allDeps = getAllDeps();
-    core.debug(JSON.stringify(allDeps.entries));
+    core.debug(JSON.stringify([...allDeps]));
     const deprecations = await checkForDeprecations(allDeps);
     core.setOutput("deprecated", [...deprecations].join(","));
     if (deprecations.size)
