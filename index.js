@@ -1,18 +1,15 @@
 import core from "@actions/core";
 import getAllDeps from "./get-all-deps";
+import checkForDeprecations from "./check-deprecations";
 
-// most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ignore = core.getInput("ignore");
-    console.log(`ignoring`, ignore);
-
-    core.debug(new Date().toTimeString());
-    const res = getAllDeps();
-    console.log(res);
-    core.debug(new Date().toTimeString());
-
-    core.setOutput("time", new Date().toTimeString());
+    const allDeps = getAllDeps();
+    core.debug(JSON.stringify(allDeps.entries));
+    const deprecations = await checkForDeprecations(allDeps);
+    core.setOutput("deprecated", [...deprecations.entries()].join(","));
+    if (deprecations.size)
+      core.setFailed(`Deprecated: ${[...deprecations.entries()].join(",")}`);
   } catch (error) {
     core.setFailed(error.message);
   }
