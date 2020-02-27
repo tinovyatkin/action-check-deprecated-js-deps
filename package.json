@@ -39,7 +39,7 @@
     "@rollup/plugin-node-resolve": "7.0.0",
     "@types/jest": "24.9.1",
     "builtins": "3.0.1",
-    "eslint": "6.7.2",
+    "eslint": "6.8.0",
     "husky": "4.2.3",
     "jest": "25.1.0",
     "lint-staged": "9.5.0",
