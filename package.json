@@ -37,7 +37,7 @@
     "@babel/preset-env": "7.8.6",
     "@rollup/plugin-json": "4.0.0",
     "@rollup/plugin-node-resolve": "7.0.0",
-    "@types/jest": "24.9.1",
+    "@types/jest": "25.1.4",
     "builtins": "3.0.1",
     "eslint": "6.7.2",
     "husky": "4.2.3",
