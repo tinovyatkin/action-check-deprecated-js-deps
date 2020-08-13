@@ -36,7 +36,7 @@
   "devDependencies": {
     "@babel/preset-env": "7.8.7",
     "@rollup/plugin-json": "4.1.0",
-    "@rollup/plugin-node-resolve": "7.1.1",
+    "@rollup/plugin-node-resolve": "9.0.0",
     "@types/jest": "26.0.3",
     "builtins": "3.0.1",
     "eslint": "6.8.0",
