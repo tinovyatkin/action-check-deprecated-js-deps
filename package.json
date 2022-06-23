@@ -30,7 +30,7 @@
     "@actions/core": "^1.2.0",
     "get-monorepo-packages": "1.2.0",
     "load-json-file": "6.2.0",
-    "package-json": "6.5.0",
+    "package-json": "7.0.0",
     "semver": "7.3.2"
   },
   "devDependencies": {
