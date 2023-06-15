@@ -31,7 +31,7 @@
     "get-monorepo-packages": "1.2.0",
     "load-json-file": "6.2.0",
     "package-json": "6.5.0",
-    "semver": "7.3.2"
+    "semver": "7.5.2"
   },
   "devDependencies": {
     "@babel/preset-env": "7.8.7",
