@@ -28,7 +28,7 @@
   "homepage": "https://github.com/tinovyatkin/action-check-deprecated-js-deps#readme",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "get-monorepo-packages": "1.2.0",
+    "get-monorepo-packages": "^1.3.0",
     "load-json-file": "6.2.0",
     "package-json": "6.5.0",
     "semver": "7.6.3"
