@@ -10,9 +10,9 @@ jobs:
   yarn-workspace:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v4
 
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v4
         with:
           repository: facebook/jest
           path: jest
@@ -25,9 +25,9 @@ jobs:
   lerna:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v4
 
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v4
         with:
           repository: babel/babel
           path: babel

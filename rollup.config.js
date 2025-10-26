@@ -1,6 +1,6 @@
-import commonjs from "rollup-plugin-commonjs";
+import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import json from "@rollup/plugin-json";
 
 import builtins from "builtins";
@@ -10,13 +10,12 @@ export default {
   output: {
     file: "dist/index.js",
     format: "cjs",
-    interop: false,
+    interop: "auto",
     esModule: false,
-    exports: "none",
-    preferConst: true
+    exports: "none"
   },
   plugins: [
-    json({ preferConst: true }),
+    json(),
     resolve({ browser: false }),
     commonjs({ ignoreGlobal: true }),
     terser()

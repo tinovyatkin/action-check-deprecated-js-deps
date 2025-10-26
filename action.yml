@@ -16,5 +16,5 @@ outputs:
   deprecated: # output will be available to future steps
     description: "names of deprecated packages"
 runs:
-  using: "node12"
+  using: "node20"
   main: "dist/index.js"
