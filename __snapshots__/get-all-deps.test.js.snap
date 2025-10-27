@@ -2,32 +2,32 @@
 
 exports[`getAllDeps works with monorepo 1`] = `
 Map {
-  "test-dev-dep" => Array [
-    Object {
+  "test-dev-dep" => [
+    {
       "file": "packages/a",
       "type": "devDependencies",
       "version": "3.4.5",
     },
-    Object {
+    {
       "file": "packages/b",
       "type": "devDependencies",
       "version": "3.4.5",
     },
   ],
-  "test-dep" => Array [
-    Object {
+  "test-dep" => [
+    {
       "file": "packages/b",
       "type": "dependencies",
       "version": "latest",
     },
-    Object {
+    {
       "file": "package.json",
       "type": "dependencies",
       "version": "1.2.3",
     },
   ],
-  "test-resolution" => Array [
-    Object {
+  "test-resolution" => [
+    {
       "file": "packages/b",
       "type": "resolutions",
       "version": "1.1.1",
